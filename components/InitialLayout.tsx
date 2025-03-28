@@ -7,8 +7,6 @@ export default function InitialLayout() {
   const segments = useSegments();
   const router = useRouter();
 
-  console.log("segments: ", segments);
-
   useEffect(() => {
     if (!isLoaded) return;
 
