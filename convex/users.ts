@@ -14,7 +14,7 @@ export const createUser = mutation({
   handler: async (context, args) => {
     const existingUser = await context.db
       .query("users")
-      .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+      .withIndex("by_email", (q) => q.eq("email", args.email))
       .first();
 
     if (existingUser) return;
@@ -29,7 +29,7 @@ export const createUser = mutation({
       clerkId: args.clerkId,
       followers: 0,
       following: 0,
-      post: 0,
+      posts: 0,
     });
   },
 });
